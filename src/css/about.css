@@ -1,0 +1,18 @@
+@import 'swiper/css';
+
+.swiper-about {
+  max-width: 343px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .swiper-about {
+    max-width: 704px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .swiper-about {
+    max-width: 1376px;
+  }
+}

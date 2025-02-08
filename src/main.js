@@ -48,3 +48,47 @@ document
       '_blank'
     );
   });
+
+import Swiper from 'swiper';
+import { Navigation, Keyboard } from 'swiper/modules';
+
+const aboutSwiper = new Swiper('.swiper-about', {
+  modules: [Navigation, Keyboard],
+  slidesPerView: 2,
+  spaceBetween: 0,
+  loop: true,
+  navigation: {
+    nextEl: '.about-swiper-button-next',
+  },
+  allowTouchMove: true,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+  breakpoints: {
+    768: {
+      // Для планшетів
+      slidesPerView: 3,
+    },
+    1440: {
+      // Для десктопів
+      slidesPerView: 5,
+    },
+  },
+  on: {
+    slideChangeTransitionEnd: function () {
+      document.querySelectorAll('.skills-circle').forEach(circle => {
+        circle.style.backgroundColor = 'transparent';
+        circle.style.border = '1px solid rgba(250, 250, 250, 0.2)';
+      });
+
+      const activeSlide = document.querySelector(
+        '.swiper-slide-active .skills-circle'
+      );
+      if (activeSlide) {
+        activeSlide.style.backgroundColor = '#ED3B44';
+        activeSlide.style.border = 'none';
+      }
+    },
+  },
+});
